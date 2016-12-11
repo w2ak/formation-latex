@@ -1,0 +1,11 @@
+.PHONY: all
+SRC:=$(shell find -mindepth 2 -maxdepth 2 -type f -name '*.tex')
+
+all: $(patsubst %.tex,%.pdf,$(SRC))
+
+%.pdf: %.tex
+	make -C $(@D) $(@F)
+
+%:
+	mkdir $@
+	cd $@ && ln -s ../../.makefiles/LaTeX Makefile && cd -

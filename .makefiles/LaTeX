@@ -1,0 +1,12 @@
+.PHONY: all clean
+SRC:=$(shell find -maxdepth 1 -type f -name '*.tex')
+
+all: $(patsubst %.tex,%.pdf,$(SRC))
+
+clean:
+	rm -f *.aux *.toc *.nav *.log *.bib *.out *.snm
+
+%.pdf: %.tex
+	pdflatex -interaction=nonstopmode "$<"
+	pdflatex -interaction=nonstopmode "$<"
+	pdflatex -interaction=nonstopmode "$<"
