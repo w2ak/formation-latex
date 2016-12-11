@@ -1,0 +1,46 @@
+\documentclass[a4paper, 11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage[french,noconfigs]{babel}
+\usepackage{lmodern}
+
+\begin{document}
+
+  \section{Caractères réservés}
+
+    \{ \} \% \# \$ \^{} \textasciicircum \~{} \textasciitilde \& \_ \textbackslash
+
+    \copyright \dag \ddag \dots \o \O \P \pounds \S \ss \textbar \textperiodcentered \textregistered \texttrademark \textvisiblespace 
+
+    ?` ou \textquestiondown  ou ¿ , !` ou \textexclamdown  ou ¡ , - , -- , --- , << ou « , >> ou »
+
+  \section{Caractères propres au français}
+
+    \og~ceci est une citation~\fg
+
+    \degres{}  \ier{}  \iere{}  \iers{}  \ieme{}  \iemes{}
+
+  \section{Espacements}
+
+    Espace insécable~: à mettre avant certains signes de ponctuation. \smallskip
+
+    Espace de longueur donnée~:\hspace{2cm}peu utile au début. \medskip
+
+    Sauts de ligne… \bigskip
+
+    …de taille variable.
+
+    Un simple retour à la ligne
+    ne change pas de paragraphe.
+
+    Pour changer de paragraphe il faut une ligne blanche.
+
+  \section{Commentaires}
+
+    Dans votre code source, ce qui est après un \% n'apparaît pas%, comme vous pouvez le voir.
+    . Dès le retour à la ligne, vous n'êtes plus en mode commentaire.
+
+
+\end{document}

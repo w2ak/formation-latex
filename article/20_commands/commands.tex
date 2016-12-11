@@ -1,0 +1,65 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french,noconfigs]{babel}
+\usepackage{lmodern}
+\usepackage{amsmath,amsfonts,mathrsfs,amssymb}
+
+\title{Créer ses commandes personnalisées avec LaTeX}
+
+\begin{document}
+\maketitle
+
+    \section{Un peu de syntaxe}
+
+        \LaTeX est intelligent. \LaTeX\ est intelligent. \LaTeX{} est intelligent.
+
+        $\frac{a}{b}$ $\frac1b$ $\frac{a}2$ $\frac12$ $\frac{12}3$ $\frac\epsilon2$ $\frac1\epsilon$ $\frac\delta\epsilon$
+
+    \section{Créer des commandes personnalisées}
+
+        \subsection{Version simple}
+
+            \newcommand{\ssi}{si et seulement si }
+            Je peux utiliser une commande \ssi elle est déjà définie.
+
+        \subsection{Commande avec arguments}
+
+            \newcommand{\suite}[3]{\left({#1}_{#2}\right)_{#2#3}}
+            La suite $\suite{u}{n}{\geq0}$ est croissante.
+
+            \newcommand{\comm}[1]{}
+            Ceci \comm{n'apparaitra pas dans le texte car c'}est un commentaire.
+
+        \subsection{Argument optionnel}
+
+            \newcommand{\norme}[2][{}]{\left\lVert #2 \right\rVert_{#1}}
+            On sait que $\norme{u_n}\rightarrow 0$ tandis que $\norme[\infty]{f_n}\rightarrow\pi$.
+
+    \section{Exercice}
+
+        Créer la commande \verb!\bonjour! telle que :
+
+        \verb!\bonjour{Clément}{Judo}! écrive : \textit{Bonjour, je suis Clément, je suis en section Judo de la promotion 2014.}
+
+        Mais il faut que l'on puisse utiliser la même commande pour écrire : \textit{Bonjour, je suis Denis, je suis en section Escrime de la promotion 2013.}
+
+        \clearpage
+        \subsection{Solution}
+
+        \begin{verbatim}
+\newcommand{\bonjour}[3][4]{
+    {\itshape
+        Bonjour, je suis #2, je suis en section #3
+        de la promotion 201#1.
+    }
+}
+        \end{verbatim}
+
+        \newcommand{\bonjour}[3][4]{{\itshape Bonjour, je suis #2, je suis en section #3 de la promotion 201#1.}}
+
+        \verb!\bonjour{Clément}{Judo}!~:\\ \bonjour{Clément}{Judo}
+
+        \verb!\bonjour[3]{Denis}{Escrime}!~:\\ \bonjour[3]{Denis}{Escrime}
+
+\end{document}

@@ -1,0 +1,187 @@
+\documentclass[a4paper, 11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage[french,noconfigs]{babel}
+\usepackage{lmodern}
+
+\usepackage{xcolor}
+
+\begin{document}
+
+  \section{La césure}
+
+        \subsection{Qu'est-ce que c'est~?}
+
+            Les habitants de la ville de Niederschaeffolsheim, sont les Niederschaeffolsheimois.
+
+        \subsection{Aider la césure}
+
+            Quand LaTeX fait mal la césure, on peut lui indiquer comment anti\-consti\-tu\-tion\-nel\-le\-ment se coupe. On peut aussi en début de document préciser les mots difficiles à couper~:
+
+            \begin{center}
+                \verb!\hyphenation{!\textit{anti-consti-tu-tion-nel-le-ment}\verb!}!
+            \end{center}
+
+        \subsection{Empêcher la césure}
+
+            Pour forcer l'absence de césure\footnote{Par exemple pour un nom propre.}, on peut utiliser la commande \verb!\mbox{…}!~:
+
+            \begin{center}
+                \verb!\mbox{!\textit{Vaneau}\verb!}!
+            \end{center}
+
+    \section{Les couleurs}
+
+        \begin{center}
+            \itshape\bfseries On prendra garde à ne pas abuser de l'usage de couleurs dans les documents. Typiquement, un document scientifique est d'autant plus aprécié qu'il est sobre.
+        \end{center}
+
+        On utilisera le package (extension) \fbox{\texttt{xcolor}}~:
+
+        \begin{center}
+            \verb!\usepackage{!\textit{xcolor}\verb!}!
+        \end{center}
+
+        Certaines couleurs par défaut sont alors rendues disponibles~:
+
+        \renewcommand{\c}[1]{\textcolor{#1}{#1}}
+        \newcommand{\bc}[1]{\colorbox{black}{\c{#1}}}
+
+        \begin{center}
+            \sffamily\bfseries
+            \begin{tabular}{|*{5}{c|}}
+                \hline
+                \c{red} & \c{green} & \c{blue} & \c{cyan} & \c{magenta} \\
+                \bc{red} & \bc{green} & \bc{blue} & \bc{cyan} & \bc{magenta} \\
+                \hline
+                \c{yellow} & \c{orange} & \c{violet} & \c{purple} & \c{brown} \\
+                \bc{yellow} & \bc{orange} & \bc{violet} & \bc{purple} & \bc{brown} \\
+                \hline
+                \c{black} & \c{darkgray} & \c{gray} & \c{lightgray} & \c{white} \\
+                \bc{black} & \bc{darkgray} & \bc{gray} & \bc{lightgray} & \bc{white} \\
+                \hline
+            \end{tabular}
+        \end{center}
+
+\clearpage
+
+        \subsection{Écrire du texte en couleur}
+
+            Pour écrire du texte en couleur on utilise l'une de ces deux syntaxes:
+
+            \begin{center}
+                \verb!\textcolor{!\textit{couleur}\verb!}{!\textit{texte}\verb!}! \\
+                \verb!{\color{!\textit{couleur}\verb!} !\textit{texte}\verb! }!
+            \end{center}
+
+        \subsection{Utiliser ses propres couleurs}
+
+            On peut utiliser des couleurs personnalisées :
+
+            \begin{flushleft}
+                \verb!\definecolor{!\textit{bleu303}\verb!}{!\textit{RGB}\verb!}{!\textit{0,62,92}\verb!}!
+                \verb!\textcolor{!\textit{bleu303}\verb!}{!\textit{texte}\verb!}!
+
+                \verb!\textcolor{!\textit{red!30!white}\verb!}{!\textit{texte}\verb!}!
+                \verb!\textcolor{!\textit{red!70!white}\verb!}{!\textit{texte}\verb!}!
+
+                \verb!\textcolor{!\textit{red!25!green!25!blue}\verb!}{!\textit{texte}\verb!}!
+            \end{flushleft}
+
+            Ce qui donne :
+
+            \begin{flushleft}
+                \sffamily\bfseries
+                \definecolor{bleu303}{RGB}{0,62,92}
+                \textcolor{bleu303}{texte}
+                
+                \textcolor{red!30!white}{texte}
+                \textcolor{red!70!white}{texte}
+
+                \textcolor{red!40!blue!40!black}{texte}
+            \end{flushleft}
+
+    \section{Les cadres}
+
+        \subsection{Encadrer du texte}
+
+            Sur quelques mots : \fbox{c'est fait ainsi}.
+
+            Sur plusieurs lignes :
+            \fbox{
+            \begin{minipage}[t]{5cm}
+            On peut ici mettre du texte sur plusieurs lignes, et ce sans problèmes.
+            \end{minipage}
+            }
+
+        \subsection{Un fond coloré}
+
+            On peut utiliser \colorbox{red}{des boites} ou \fcolorbox{blue}{red}{des boîtes encadrées}.
+
+            Et si on est cinglé on peut aussi changer la couleur de toute la page. \pagecolor{lightgray}
+
+\clearpage
+\pagecolor{white}
+
+    \section{Interligne}
+
+        Il y a de nombreuses manières de modifier l'interligne. En voici deux assez propre. On peut remplacer \texttt{1.2} par n'importe quel facteur multiplicatif.
+
+        \begin{itemize}
+            \item Commande globale et simple : \\
+            \verb!\renewcommand{\baselineskip}{1.2\baselineskip}!
+            \item Avec le package \fbox{\texttt{setspace}}, commande locale : \\
+            \verb!\begin{spacing}{1.2}!\\
+            \verb!...!\\
+            \verb!\end{spacing}!
+        \end{itemize}
+
+    \section{Colonnes}
+
+        \subsection{Deux colonnes}
+
+            On peut avoir un document complet avec deux colonnes :
+
+            \begin{center}
+                \verb!\documentclass[!\textit{…, twocolumn}\verb!]{!\textit{article}\verb!}!
+            \end{center}
+
+            On peut aussi localement alterner entre une et deux colonnes :
+
+            \begin{flushleft}
+                \verb!\twocolumn[!\textit{\textbackslash section\{Titre…\}}\verb!]!
+
+                …
+
+                \verb!\onecolumn!
+            \end{flushleft}
+
+        \subsection{Plus de colonnes}
+
+            Avec l'extension \fbox{\texttt{multicol}} on peut utiliser :
+
+            \begin{flushleft}
+                \verb!\begin{multicols}{n}!\\ … \\ \verb!\end{multicols}!
+            \end{flushleft}
+
+            La commande \verb!\columnbreak! permet de forcer le changement de colonne.
+\clearpage
+    \section{Utiliser plusieurs langues}
+
+        \begin{verbatim}
+    \usepackage[french,english]{babel}
+     …
+    \begin{document}
+         …
+        \selectlanguage{english}
+         …
+        \selectlanguage{french}
+         …
+    \end{document}
+        \end{verbatim}
+
+
+
+\end{document}
