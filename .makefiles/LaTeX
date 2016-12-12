@@ -6,6 +6,9 @@ all: $(patsubst %.tex,%.pdf,$(SRC))
 clean:
 	rm -f *.aux *.toc *.nav *.log *.bib *.out *.snm
 
+cleandist: clean
+	rm -f $(patsubst %.tex,%.pdf,$(SRC))
+
 %.pdf: %.tex
 	pdflatex -interaction=nonstopmode "$<"
 	pdflatex -interaction=nonstopmode "$<"

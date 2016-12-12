@@ -1,0 +1,15 @@
+#!/bin/sh
+getversion () {
+  gitversion=$(git describe --tags --match "v*" --long --dirty --abbrev=8 2>/dev/null);
+  echo $gitversion;
+}
+
+archname="formation-latex-"$(getversion)".tar.gz";
+rm -f "$archname"
+
+make cleandist &&
+make &&
+{
+  find . -type f -name '*.tex' -or -name '*.pdf' -or -name '*.md' -or -name 'LICENSE';
+} | xargs tar czvf "$archname" &&
+gpg2 --armor --output "$archname.asc" --detach-sign "$archname"

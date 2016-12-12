@@ -1,12 +1,17 @@
-.PHONY: all clean
+.PHONY: all clean cleandist
 SRC:=$(shell find -mindepth 2 -maxdepth 2 -type f -name '*.tex')
 
 all: $(patsubst %.tex,%.pdf,$(SRC))
 
 clean: $(patsubst %.tex,%.clean,$(SRC))
 
+cleandist: $(patsubst %.tex,%.cleandist,$(SRC))
+
 %.clean:
 	make -C $(@D) clean
+
+%.cleandist:
+	make -C $(@D) cleandist
 
 %.pdf: %.tex
 	make -C $(@D) $(@F)
