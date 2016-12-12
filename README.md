@@ -29,7 +29,7 @@ Roughly, from linux shell, the compilation would look like
 
 ## Check your installation
 
-This repository contains many `.tex` files. You should check that you can compile the `hello_world.tex` files, one is in `article/`, the other in `beamer/`.
+This repository contains many `.tex` files. You should check that you can compile the `hello_world.tex` files, one is in [`article/`](article/00_hello_world/hello_world.tex), the other in [`beamer/`](beamer/00_hello_world/hello_world.tex).
 
 If this doesn't work you might need to install packages you forgot (that's why you should have installed the **full version** of LaTeX), such as `beamer`.
 
@@ -38,13 +38,13 @@ If this doesn't work you might need to install packages you forgot (that's why y
 To use the *École polytechnique* part of this tutorial you need to install two additional packages.
 
 * [This github page](https://github.com/BinetReseau/polytechnique-LaTeX/releases/latest) contains a link to download a `.zip` of the latest version of the `polytechnique-LaTeX` package, giving you access to the standard layout for printed documents in the *École polytechnique*.
-* [This github page](https://github.com/BinetReseau/polytechnique-beamer/releases/latest) contains a link to download a `.zip` of the latest version of the `polytechnique-beamer` package, giving you access to the standard layout for printed documents in the *École polytechnique*.
+* [This github page](https://github.com/BinetReseau/polytechnique-beamer/releases/latest) contains a link to download a `.zip` of the latest version of the `polytechnique-beamer` package, giving you access to the standard layout for slideshows in the *École polytechnique*.
 * [This Google search](http://goo.gl/8NbO8e) and similar ones should help you on where to put the folders containing the additional packages.
 * [This Wikipedia page](https://en.wikibooks.org/wiki/LaTeX/Installing_Extra_Packages#Manual_installation) should help you understand what you need to do to make LaTeX understand where you put the additional packages.
 
 ## Check your additional installation
 
-You should check that you can compile the `hello_lX.tex` files. One is in `article/`, the other in `beamer/`.
+You should check that you can compile the `hello_lX.tex` files. One is in [`article/`](article/01_hello_lX/hello_lX.tex), the other in [`beamer/`](beamer/01_hello_lX/hello_lX.tex).
 
 If this doesn't work you might need to check that you installed the additional packages in the right place and that you updated the database.
 
@@ -52,7 +52,7 @@ If this doesn't work you might need to check that you installed the additional p
 
 The `.tex` files are divided in two categories, `article` and `beamer`.
 
-* `article` concerns tutorials about printed documents
-* `beamer` concerns tutorials about slideshows
+* [`article`](article/) concerns tutorials about printed documents
+* [`beamer`](beamer/) concerns tutorials about slideshows
 
 They are numbered so you can follow the order. Generally the order is chosen to group by theme and order by difficulty.
