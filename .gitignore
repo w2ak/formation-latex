@@ -182,3 +182,7 @@ TSWLatexianTemp*
 share/
 *.tar.gz
 *.asc
+
+# Work folder
+work/*
+!work/*.sh
